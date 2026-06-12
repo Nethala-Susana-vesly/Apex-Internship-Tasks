@@ -9,7 +9,7 @@ const app = express();
 const PORT = 3020;
 
 // MongoDB Atlas connection
-mongoose.connect('mongodb+srv://Susanna:Susana_626@cluster0.qtic7ma.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('databaseurl')
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log("MongoDB Error:", err));
 
