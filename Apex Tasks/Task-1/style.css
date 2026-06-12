@@ -1,0 +1,65 @@
+body{
+     background-image: url('bg.jpg'); 
+         background-repeat: no-repeat;
+         background-size: cover;
+           background-position: center;
+           background-attachment: fixed; 
+}
+.heading{
+    padding:10px 10px;
+    text-align: center;
+    font-style: italic;
+    color: rgb(233, 239, 239);
+    background-color: #E3B446;
+}
+.p1{
+    width: 900px;
+    text-align: center;
+    font-style: italic;
+    margin:30px 20px 10px 100px;
+    color: rgb(233, 239, 239);
+}
+.firsthead{
+    text-align: center;
+    font-size: 30px;
+    display: inline;
+    font-style: italic;
+    color: #E3B446;
+}
+.sechead{
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
+}
+.bd{
+    margin-left: 100px;
+}
+.foods{
+    display: inline-block;
+    margin: 20px 50px 20px 50px;
+    border: 1px solid;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #e6dcc5;
+}
+
+.about{
+   width:180px;
+   text-align: center;
+   padding:2px 5px 2px 5px;
+   padding-bottom: 7px;
+    background-color: #e6dcc5;
+}
+button{
+    background-color: #aeaba6;
+    border: 1px solid;
+    padding: 3px 5px 3px 5px;
+    color: rgb(50, 50, 43);
+    border-radius: 5px;
+    margin: 2px 2px 2px 2px;
+}
+button:hover{
+    background-color:#c8c6c3;
+    color: rgb(125, 125, 112);
+    box-shadow: black;
+
+}

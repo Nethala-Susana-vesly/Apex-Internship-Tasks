@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+*{
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+body{
+    background-image: url("bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+     margin: 5px;
+    padding: 2px;
+
+}
+#top{
+    font-size: 70px;
+}
+h1{
+    color:black;
+    padding: 30px 10px;
+    text-align: center;
+    font-size:30px;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+    padding-top: 50px;
+    margin-bottom: 30px;
+}
+.weather-input {
+    width: 420px;
+    height:400px;
+    border:none;
+    border-radius: 20px;
+    padding:30px 20px 20px 20px;
+    margin-top: -30px;
+    background: none;
+    backdrop-filter: blur(20px);
+}
+.weather-input input {
+    width: 100%;
+    height: 46px;
+    outline: none;
+    padding: 0 15px;
+    margin:  10px 0 20px 0;
+    font-size: 1.07rem;
+    border: 1px solid hsl(0, 3%, 74%);
+    border-radius: 20px;
+}
+.weather-input .separator {
+    height: 1px;
+    width: 100%;
+    margin: 25px 0;
+    background: #313030;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+.weather-input .separator::before {
+    content: "or";
+    color: #494c4e;
+    font-size: 1.18rem;
+    padding: 0 15px;
+    margin-top: -4px;
+    background: #a9d6f7;
+    border-radius: 50px;
+
+}
+.weather-input button{
+    width: 100%;
+    padding: 10px 0;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    background: #278e97;
+    border-radius: 20px;
+}
+.weather-input button:hover{
+    background: #2fa1ab;
+}
+.weather-input .location-btn {
+    background: #9fa4a9 ;
+}
+.weather-input .location-btn:hover{
+    background: #86888b ;
+}
+.weather-data {
+    width: 80%;
+    margin-top: 10px;
+}
+.current-weather {
+    color: #fff;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    margin-top: -30px;
+    backdrop-filter: blur(20px);
+}
+.current-weather .details{
+    text-align: center;
+}
+.current-weather h2 {
+    font-size: 40px;
+}
+.current-weather h4 {
+    font-size: 29px;
+}
+
+.weather-data h2 {
+    font-size: 30px;
+}
+.weather-data h4 {
+    margin-top: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.current-weather  .icon {
+    text-align: center;
+
+}
+.current-weather  .icon img{
+     width: 200px;
+    height: 300px;
+}
+ .current-weather .icon h4 {
+    margin-top: -10px;
+    text-transform: capitalize;
+ }
+.days-forecast h2 {
+    font-size: 25px;
+    margin: 20px 0;
+  }
+.weather-card {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    flex-wrap: wrap;
+    overflow-x: auto;
+  }
+  .weather-card .card{
+    width: 160px;
+    height: 250px;
+    list-style: none;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    backdrop-filter:blur(30px);
+    flex-shrink: 0;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    
+}
+.weather-cards .card img {
+    max-width: 100px;
+    margin: 5px 0 -12px 0;
+}
+
+@media (max-width: 1400px) {
+    .weather-data .current-weather {
+        padding: 20px;
+    }
+    .weather-card {
+        flex-wrap: wrap;
+    }
+    .weather-cards .card {
+        width: calc(100% / 4 - 15px);
+    }
+} 
+@media (max-width: 1200px) {
+    .weather-cards .card {
+        width: calc(100% / 3 - 15px);
+    } 
+} 
+@media (max-width: 950px) {
+    .weather-input {
+        width: 450px;
+    }
+    .weather-cards .card {
+        width: calc(100% / 2 - 10px);
+    }
+}
+@media (max-width: 750px) {
+    .container {
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+    .weather-input {
+        width: 100%;
+    }
+}
+.quiz{
+    margin:20px;
+    padding:20px;
+    text-align: center;
+    justify-content: center;
+}
+.quiz button{
+    width: 100px;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    background: #278e97;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.quiz button:hover{
+    background: #2fa1ab;
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Quiz</title>
+    <style>
+        body {
+            font-family: italic;
+            text-align: center;
+            background-image: url("bg4.jpg");
+             background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            justify-content: center;
+        }
+
+        .quiz-box {
+           width: 500px;
+           border:none;
+           border-radius: 20px;
+           margin:50px 200px 50px 250px;
+           padding:30px;
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+           box-shadow: 10px 10px 30px rgb(102, 101, 101);
+        }
+
+        .quiz-box p {
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .quiz-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quiz-box li { 
+            padding: 7px;
+            border-radius: 10px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            border: 1px solid;
+            margin:10px 20px 10px 20px;
+            text-align: left;
+            padding-left:20px;
+            margin-left: 50px;
+
+        }
+
+        .quiz-box li:hover {
+            background-color: #d0eaff;
+        }
+
+        .quiz-box button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #7cbafb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .quiz-box button:hover {
+            background-color: #007acc;
+        }
+
+        #quiz-result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        #retake-btn {
+            display: none;
+            border-radius: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Weather Quiz</h1>
+    <div class="quiz-box">
+        <p id="question">Loading question...</p>
+        <ul id="options"></ul>
+        <button id="next-btn">Next Question</button>
+        <p id="quiz-result"></p>
+        <button id="retake-btn">Retake</button>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "1. What does a high humidity percentage usually indicate?",
+                options: ["Dry air", "Rain or moisture", "Cold winds", "Dust storm"],
+                answer: "Rain or moisture"
+            },
+            {
+                question: "2. Which unit is used to measure temperature?",
+                options: ["Kelvin", "Kilogram", "Meter", "Celsius"],
+                answer: "Celsius"
+            },
+            {
+                question: "3. What tool is used to measure wind speed?",
+                options: ["Thermometer", "Barometer", "Anemometer", "Rain gauge"],
+                answer: "Anemometer"
+            },
+            {
+                question: "4. What type of cloud is commonly associated with thunderstorms?",
+                options: ["Stratus", "Cumulus", "Cumulonimbus", "Cirrus"],
+                answer: "Cumulonimbus"
+            },
+            {
+                question: "5. What does a barometer measure?",
+                options: ["Humidity", "Wind Speed", "Atmospheric Pressure", "Temperature"],
+                answer: "Atmospheric Pressure"
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const nextBtn = document.getElementById("next-btn");
+        const resultEl = document.getElementById("quiz-result");
+        const retakeBtn = document.getElementById("retake-btn");
+
+        function showQuestion() {
+            const currentQuestion = quizData[currentQuizIndex];
+            questionEl.textContent = currentQuestion.question;
+            optionsEl.innerHTML = "";
+            nextBtn.style.display = "none";
+
+            currentQuestion.options.forEach(option => {
+                const li = document.createElement("li");
+                li.textContent = option;
+                li.onclick = () => selectAnswer(li, currentQuestion.answer);
+                optionsEl.appendChild(li);
+            });
+        }
+
+        function selectAnswer(selectedLi, correctAnswer) {
+            const allOptions = optionsEl.querySelectorAll("li");
+            allOptions.forEach(opt => opt.style.pointerEvents = "none");
+
+            if (selectedLi.textContent === correctAnswer) {
+                selectedLi.style.backgroundColor = "#c8f7c5";
+                score++;
+            } else {
+                selectedLi.style.backgroundColor = "#f7c5c5";
+                allOptions.forEach(opt => {
+                    if (opt.textContent === correctAnswer) opt.style.backgroundColor = "#c8f7c5";
+                });
+            }
+
+            // Auto move to next question or show result after a short delay
+            setTimeout(() => {
+                currentQuizIndex++;
+                if (currentQuizIndex < quizData.length) {
+                    showQuestion();
+                } else {
+                    showResult();
+                }
+            }, 1000);
+        }
+
+        function showResult() {
+            questionEl.textContent = "Quiz Completed!";
+            optionsEl.innerHTML = "";
+            resultEl.textContent = `Your Score: ${score} / ${quizData.length}`;
+            retakeBtn.style.display = "inline-block";
+        }
+
+        retakeBtn.onclick = () => {
+            currentQuizIndex = 0;
+            score = 0;
+            resultEl.textContent = "";
+            retakeBtn.style.display = "none";
+            showQuestion();
+        };
+
+        showQuestion();
+    </script>
+</body>
+
+</html>
